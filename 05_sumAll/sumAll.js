@@ -1,24 +1,19 @@
 const sumAll = function(firstInt, secondInt) {
     let totalSum = 0;
-    let firstNum = firstInt;
-    let secondNum = secondInt;
 
-    if(firstNum < 0 || secondNum < 0){
-        return "ERROR";
-    } else if(typeof firstNum === 'string' || typeof secondNum === 'string'){
-        return "ERROR";
-    } else if(Array.isArray(firstNum) || Array.isArray(secondNum)){
-        return "ERROR";
+    if(firstInt < 0 || secondInt < 0) return "ERROR";
+    if(typeof firstInt === 'string' || typeof secondInt === 'string') return "ERROR";
+    if(Array.isArray(firstInt) || Array.isArray(secondInt)) return "ERROR";
+    // if (!Number.isInteger(min) || !Number.isInteger(max)) return "ERROR";  
+    // above line is simple method in solving the string array error or to find the parameter is integer
+    if (firstInt > secondInt) {
+        const temp = firstInt;
+        firstInt = secondInt;
+        secondInt = temp;
     }
 
-    if(firstNum > secondNum){
-        for( let i = 0;i <= firstNum;i++){
-            totalSum += i
-        }
-    } else {
-        for( let i = 0;i <= secondNum;i++){
-            totalSum += i
-        }
+    for( let i = 0;i <= secondInt;i++){
+        totalSum += i
     }
 
     return totalSum;
