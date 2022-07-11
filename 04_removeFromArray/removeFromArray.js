@@ -1,14 +1,21 @@
-const removeFromArray = function(arrList, ...arrRemove) {
-    for(let arrRm of arrRemove){
-        for( let i = 0; i < arrList.length; i++ ){
-            if(arrList[i] === arrRm){
-                arrList.splice(i,1);
-                i--;
-            }
+const removeFromArray = function(...theArgs) {
+    const arr = theArgs[0];
+
+    const newArr = [];
+
+    arr.forEach((item) => {
+        if(!theArgs.includes(item)){
+            newArr.push(item);
         }
-    }
-    return arrList;
+    });
+
+    return newArr;
 };
+
+// let removeFromArray = function(...args) {
+//   const array = args[0]
+//   return array.filter(val => !args.includes(val))
+// }
 
 // Do not edit below this line
 module.exports = removeFromArray;
